@@ -1,7 +1,7 @@
 ---
 title: Goals
 created: '2022-07-19T06:18:42.775Z'
-modified: '2022-07-19T08:44:57.216Z'
+modified: '2022-07-20T05:19:25.491Z'
 ---
 
 # Goals
@@ -13,5 +13,5 @@ modified: '2022-07-19T08:44:57.216Z'
 - [ ] SQL
 - [ ] DSA
 - [ ] Java / OOP
-- [ ] Linux course
-- [ ] Agile Development course
+- [ ] Linux
+

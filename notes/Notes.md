@@ -2,7 +2,7 @@
 attachments: [Clipboard_2022-07-19-10-01-47.png, Clipboard_2022-07-19-10-06-22.png, Clipboard_2022-07-19-10-06-35.png, Clipboard_2022-07-19-10-13-46.png, Clipboard_2022-07-19-10-15-18.png]
 title: Notes
 created: '2022-07-19T01:59:14.868Z'
-modified: '2022-07-19T02:15:33.814Z'
+modified: '2022-07-21T08:05:15.556Z'
 ---
 
 # Notes
@@ -28,4 +28,12 @@ celery runner - wrap the django code, running as a stand alone app, all it does 
 @shared_task
 code thats able to run asynch
 
+
+```bash
+export DEBUG='True'
+export DATABASE_URL='psql://postgres:james@localhost:5432/fresaa'
+export DJANGO_SETTINGS_MODULE='fresaa.settings.development'
+export CELERY_BROKER_URL='redis://localhost:6379/0'
+
+```
 
