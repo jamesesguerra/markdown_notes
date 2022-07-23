@@ -3,15 +3,15 @@ attachments: [Clipboard_2022-07-20-21-36-01.png, Clipboard_2022-07-20-21-41-18.p
 tags: [Notebooks/Head First Java]
 title: 'Chapter 3: Primitives and References'
 created: '2022-07-20T13:17:12.223Z'
-modified: '2022-07-23T00:33:53.117Z'
+modified: '2022-07-23T07:17:07.690Z'
 ---
 
 # Chapter 3: Primitives and References
 
 ## Two kinds of variables
 
-1. primitive - hold fundamental values such as integers, booleans, floats
-2. reference - hold references to objects
+1. __primitive -__ hold fundamental values such as integers, booleans, floats
+2. __reference -__ hold references to objects
 
 * the type-safety that the compiler employs works because of these variable type declarations
 
@@ -27,7 +27,7 @@ Each primitive type has a fixed number of bits (cup size).
 
 #### Spillage
 
-You can't put a large value into a small cup. The compiler won't allow you to put a big thing into a small container even if it fits, because there's always the possiblity of spillage. The compiler doesn't know the value of your variable and it always errs on the side of safety.
+You can't put a large value into a small cup (an exception to this is casting). The compiler won't allow you to put a big thing into a small container even if it fits, because there's always the possiblity of spillage. The compiler doesn't know the value of your variable and it always errs on the side of safety.
 
 ### References
 
