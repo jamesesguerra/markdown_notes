@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-07-20-21-36-01.png, Clipboard_2022-07-20-21-41-18.p
 tags: [Notebooks/Head First Java]
 title: 'Chapter 3: Primitives and References'
 created: '2022-07-20T13:17:12.223Z'
-modified: '2022-07-21T15:04:10.960Z'
+modified: '2022-07-23T00:33:53.117Z'
 ---
 
 # Chapter 3: Primitives and References
@@ -81,6 +81,10 @@ d = null; // not pointing to anything, but still a reference variable
 
 ```java
 int[] nums = new int[7];
+
+// initializing with values
+
+int[] nums = {1, 2, 3, 4, 5};
 ```
 
 ![](@attachment/Clipboard_2022-07-21-23-01-51.png)

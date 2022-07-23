@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 4: Methods Use Instance Variables'
 created: '2022-07-21T15:17:01.410Z'
-modified: '2022-07-22T09:46:25.678Z'
+modified: '2022-07-23T01:10:32.905Z'
 ---
 
 # Chapter 4: Methods Use Instance Variables
@@ -51,7 +51,7 @@ public class Song {
 
 This means __pass-by-copy__. That is, if you declare an `int` variable `x` with the value 5, and then you pass this variable to a method which takes in a `y` `int` variable, the value that's passed into `y` is a mere copy of the value of `x`. Making changes to `y` won't affect the value of `x`.
 
-The case would be different if you were to pass a reference variable to a method. In this case, the value that would be passed to the local reference variable are the bits representing a way to get to the object itself. If the local reference variable makes changes to this object, the object the original reference variable was pointing to would be changed as well. This is because the two reference variables are pointing to teh same object.
+The case would be different if you were to pass a reference variable to a method. In this case, the value that would be passed to the local reference variable are the bits representing a way to get to the object itself. If the local reference variable makes changes to this object, the object the original reference variable was pointing to would be changed as well. This is because the two reference variables are pointing to the same object.
 
 ### Encapsulation - Getters and Setters
 
