@@ -1,9 +1,9 @@
 ---
-attachments: [Clipboard_2022-07-23-13-31-57.png]
+attachments: [Clipboard_2022-07-23-13-31-57.png, Clipboard_2022-07-23-20-16-11.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 7: Inheritance and Polymorphism'
 created: '2022-07-23T02:01:06.972Z'
-modified: '2022-07-23T07:11:56.270Z'
+modified: '2022-07-23T14:14:58.379Z'
 ---
 
 # Chapter 7: Inheritance and Polymorphism
@@ -71,7 +71,7 @@ public void roam() {
 
 A subclass can inherit members of the superclass. These members include instance variables and methods. A superclass can choose whether or not it wants a subclass to inherit a particular member. This is done through access modifiers:
 
-__Access Level Modifiers (from most to least restrictive):__
+##### Access Level Modifiers (from most to least restrictive):
 - `private`
 - `default`
 - `protected`
@@ -84,4 +84,66 @@ __private__ members are not inherited
 
 * When a subclass inherits a member, __it's as if the subclass defined the member itself__.
 
+#### The advantage of inheritance
+
+1. You get rid of duplicate code by abstracting/extracting them out and sticking it into a superclass. That way, when you need to modify it, you need only modify it in one place and the changes will be reflected to the subclasses. You don't have to touch the subclasses. 
+2. You define a common protocol for a group of classes. Inheritance lets you guarantee that all classes grouped under a certain superclass have all the methods the superclass has. In other words, you establish a contract. This contract allows you to use __polymorphism__.
+
+### Polymorphism
+
+When you define a superclass for a group of subclasses, __any subclass of that superclass can be substituted where the superclass is expected.__ This matters because you get to take advantage of polymorphism. You get to refer to a subclass object using a reference declared as the superclass. 
+
+#### The advantage of polymorphism
+
+You get to write more flexible code. Code that's cleaner and much easier to extend and develop.
+
+#### The way polymorphism works
+
+Step back and look at the way we normall declare a reference and create an object:
+
+1. Declare a reference variable. Tells the JVM to allocate space for a reference variable of type `Dog`. In other words, a remote control that has buttons to control a `Dog` object.
+```java
+Dog myDog;
+```
+
+2. Create an object. Tells the JVM to allocate space for a new `Dog` object on the GC heap.
+```java
+new Dog();
+```
+
+3. Link the reference and the object. Assigns the new `Dog` object to the reference variable `myDog`. In other words, programs the remote control to point to that specific `Dog` object.
+```java
+Dog myDog = new Dog();
+```
+
+__The important point:__ The reference type __AND__ the object type are the same. In the example, both are type `Dog`.
+
+![](@attachment/Clipboard_2022-07-23-20-16-11.png)
+
+__But with polymorphism, the reference and the object can be different:__
+
+```java
+Animal myDog = new Dog();
+```
+
+__With polymorphism, the reference type can be a superclass of the actual object type.__
+
+When you declare a reference variable, any object that extends it can be assigned to the reference variable. __This lets you create polymorphic arrays:__
+
+```java
+// Declare an array that will hold objects of type Animal
+Animal[] animals = new Animal[5];
+
+// But with polymorphism, you can put any subclass of Animal in the Animal array
+animals[0] = new Dog();
+animals[1] = new Cat();
+animals[2] = new Lion();
+animals[3] = new Wolf();
+
+// The best polymorphic part: you get to loop through the array and call one of the Animal-class methods, and every object will do the right thing
+for (int animal : animals) {
+  animal.eat(); // first animal is the dog, so you get the Dog's eat() method
+  animal.roam();
+}
+```
 
