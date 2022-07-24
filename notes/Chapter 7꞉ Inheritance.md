@@ -1,12 +1,12 @@
 ---
 attachments: [Clipboard_2022-07-23-13-31-57.png, Clipboard_2022-07-23-20-16-11.png]
 tags: [Notebooks/Head First Java]
-title: 'Chapter 7: Inheritance and Polymorphism'
+title: 'Chapter 7: Inheritance'
 created: '2022-07-23T02:01:06.972Z'
-modified: '2022-07-23T14:14:58.379Z'
+modified: '2022-07-24T12:51:26.199Z'
 ---
 
-# Chapter 7: Inheritance and Polymorphism
+# Chapter 7: Inheritance
 
 __Rationale:__ Planning programs with the future in mind. Writing more extensible and flexible code.
 
@@ -20,16 +20,16 @@ Apart from the members that the subclass inherits from its superclass, it can al
 
 We want to design the tree in a way that other programmers can easily add new classes to the program at any time.
 
-1. Look for objects that have common attributes and behaviors (extracting out common behavior).
-  - What does a tiger, lion, hippo, dog, bird, wolf, cat have in common? How are these types related?
-2. Design a class that represents the common state and behavior.
-  - The types are all animals, so the common superclass would be `Animal`. Define all the instance variables and methods all subclasses of `Animal` might need.
-3. Decide if a subclass needs behaviors (method implementations) that are specific to that particular subclass type. See if there are methods that should be overriden by individual subclasses. 
-  - All animals will need an `eat()` method. However, not all animals eat the same way. You _can_ define the `eat()` method to use one of its instance variables to customize its behavior for every animal, but that's not very specialized. These methods should be overriden by the individual subclasses of `Animal`. For example, a `Lion` subclass should override the `eat()` method to get more lion-specific behavior.
-4. Look for more opportunities for abstraction by finding two or more subclasses that might need common behavior. In other words, group together subclasses that have common behavior.
-  - A lion, tiger, and cat are all felines, maybe there are instance variables or methods that all three subclasses could use. 
-5. Finish the class hierarchy.
-  - `Feline`s and `Canine`s could use a common `roam()` method that they inherit from the `Animal` superclass. These `roam()` methods are overridden in each subclass since felines and canines roam differently.
+1. __Look for objects that have common attributes and behaviors (extracting out common behavior).__
+What does a tiger, lion, hippo, dog, bird, wolf, cat have in common? How are these types related?
+2. __Design a class that represents the common state and behavior.__
+The types are all animals, so the common superclass would be `Animal`. Define all the instance variables and methods all subclasses of `Animal` might need.
+3. __Decide if a subclass needs behaviors (method implementations) that are specific to that particular subclass type. See if there are methods that should be overriden by individual subclasses.__
+All animals will need an `eat()` method. However, not all animals eat the same way. You _can_ define the `eat()` method to use one of its instance variables to customize its behavior for every animal, but that's not very specialized. These methods should be overriden by the individual subclasses of `Animal`. For example, a `Lion` subclass should override the `eat()` method to get more lion-specific behavior.
+4. __Look for more opportunities for abstraction by finding two or more subclasses that might need common behavior. In other words, group together subclasses that have common behavior.__
+A lion, tiger, and cat are all felines, maybe there are instance variables or methods that all three subclasses could use. 
+5. __Finish the class hierarchy.__
+`Feline`s and `Canine`s could use a common `roam()` method that they inherit from the `Animal` superclass. These `roam()` methods are overridden in each subclass since felines and canines roam differently.
 
   ![](@attachment/Clipboard_2022-07-23-13-31-57.png)
 
@@ -88,62 +88,4 @@ __private__ members are not inherited
 
 1. You get rid of duplicate code by abstracting/extracting them out and sticking it into a superclass. That way, when you need to modify it, you need only modify it in one place and the changes will be reflected to the subclasses. You don't have to touch the subclasses. 
 2. You define a common protocol for a group of classes. Inheritance lets you guarantee that all classes grouped under a certain superclass have all the methods the superclass has. In other words, you establish a contract. This contract allows you to use __polymorphism__.
-
-### Polymorphism
-
-When you define a superclass for a group of subclasses, __any subclass of that superclass can be substituted where the superclass is expected.__ This matters because you get to take advantage of polymorphism. You get to refer to a subclass object using a reference declared as the superclass. 
-
-#### The advantage of polymorphism
-
-You get to write more flexible code. Code that's cleaner and much easier to extend and develop.
-
-#### The way polymorphism works
-
-Step back and look at the way we normall declare a reference and create an object:
-
-1. Declare a reference variable. Tells the JVM to allocate space for a reference variable of type `Dog`. In other words, a remote control that has buttons to control a `Dog` object.
-```java
-Dog myDog;
-```
-
-2. Create an object. Tells the JVM to allocate space for a new `Dog` object on the GC heap.
-```java
-new Dog();
-```
-
-3. Link the reference and the object. Assigns the new `Dog` object to the reference variable `myDog`. In other words, programs the remote control to point to that specific `Dog` object.
-```java
-Dog myDog = new Dog();
-```
-
-__The important point:__ The reference type __AND__ the object type are the same. In the example, both are type `Dog`.
-
-![](@attachment/Clipboard_2022-07-23-20-16-11.png)
-
-__But with polymorphism, the reference and the object can be different:__
-
-```java
-Animal myDog = new Dog();
-```
-
-__With polymorphism, the reference type can be a superclass of the actual object type.__
-
-When you declare a reference variable, any object that extends it can be assigned to the reference variable. __This lets you create polymorphic arrays:__
-
-```java
-// Declare an array that will hold objects of type Animal
-Animal[] animals = new Animal[5];
-
-// But with polymorphism, you can put any subclass of Animal in the Animal array
-animals[0] = new Dog();
-animals[1] = new Cat();
-animals[2] = new Lion();
-animals[3] = new Wolf();
-
-// The best polymorphic part: you get to loop through the array and call one of the Animal-class methods, and every object will do the right thing
-for (int animal : animals) {
-  animal.eat(); // first animal is the dog, so you get the Dog's eat() method
-  animal.roam();
-}
-```
 
