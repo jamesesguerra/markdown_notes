@@ -1,17 +1,17 @@
 ---
 attachments: [Clipboard_2022-07-26-10-39-41.png]
 tags: [Notebooks/Head First Java]
-title: 'Chapter 8: Interfaces and Abstract Classes'
+title: 'Chapter 8: Abstract Classes'
 created: '2022-07-25T03:13:54.580Z'
-modified: '2022-07-26T02:39:41.525Z'
+modified: '2022-07-26T13:32:08.626Z'
 ---
 
-# Chapter 8: Interfaces and Abstract Classes
+# Chapter 8: Abstract Classes
 
 __Rationale:__ To exploit polymorphism, we need interfaces and to go beyond simple inheritance. 
 
 
-### Abstract classes: what we missed when designing the inheritance tree
+## Abstract classes: what we missed when designing the inheritance tree
 
 The class structure was designed so that duplicate code is kept to a minimum and there is a common protocol enforced. However, __some classes are not meant to be instantiated.__ That is, we can imagine what a `Hippo` or `Dog` object looks like, but what does an `Animal` object look like?
 
@@ -119,6 +119,37 @@ Dog anotherDog = dogList.get(0);
 
 ![](@attachment/Clipboard_2022-07-26-10-39-41.png)
 
+If you treat everything polymorphically as an `Object`, the objects appear to lose their true essence. You cannot access `Dog`-specific methods with an `Object` reference variable. 
 
+__The compiler decides whether you can call a method based on the reference type, not the actual object type.__ This means that an `Object` reference to a `Dog` object cannot see its `Dog`-specific methods. 
 
+### Casting objects to its real reference type
+
+You can do this kind of polymorphic casting because the reference type is a subclass of the actual object. 
+```java
+Object o = new Dog();
+Animal a = new Dog();
+```
+
+But you can't do this because `Object` isn't a subclass of `Dog`
+```java
+Object o = new Dog();
+Dog d = o;
+```
+
+If you want to call `Dog`-specific methods, you need a reference declared as type `Dog`. If you're sure that the object really is a `Dog`, you can make a new `Dog` reference and have it point to the `Object` but force it to go into the reference using a cast `(Dog)`.
+```java
+Object o = new Dog();
+o.roam(); // won't work because it's not on the Object o remote
+Dog d = (Dog) o;
+d.roam(); // works now
+``` 
+
+__If you wanna know whether an object is an instance of a certain class, use the `instanceof` operator.__
+
+```java
+if (o instanceof Dog) {
+  Dog d = (Dog) o;
+}
+```
 

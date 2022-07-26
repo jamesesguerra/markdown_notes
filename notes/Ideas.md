@@ -1,8 +1,9 @@
 ---
+deleted: true
 tags: [Notebooks/ASSI]
 title: Ideas
 created: '2022-07-25T02:17:12.605Z'
-modified: '2022-07-25T02:22:04.096Z'
+modified: '2022-07-26T11:38:52.508Z'
 ---
 
 # Ideas
