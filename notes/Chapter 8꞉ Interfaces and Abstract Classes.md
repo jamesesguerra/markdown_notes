@@ -1,8 +1,9 @@
 ---
+attachments: [Clipboard_2022-07-26-10-39-41.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 8: Interfaces and Abstract Classes'
 created: '2022-07-25T03:13:54.580Z'
-modified: '2022-07-25T13:59:45.294Z'
+modified: '2022-07-26T02:39:41.525Z'
 ---
 
 # Chapter 8: Interfaces and Abstract Classes
@@ -57,6 +58,66 @@ The point of abstract methods is that even though you aren't giving any useful c
 The first concrete class in the inheritance must implement all abstract methods. If the abstract method is passed down to another abstract class, it does not have to implement it, but it can. If the abstract class `Canine` implements an abstract method that is inherited from `Animal`, then `Dog` does not need to implement it anymore. But if `Canine` says nothing about the abstract methods from `Animal`, `Dog` has to implement all of its abstract methods.
 
 ### `Object`: the ultimate superclass
+
+Every class in Java extends class `Object`. This is how the developer of Java made the `ArrayList` take in objects they didn't even know about as arguments to `ArrayList` methods. Any class that doesn't explicitly extend another class, extends `Object`. 
+
+The `Object`class serves two main purposes: to act as a polymorphic type for methods that need to work on any class, and to provide real method code that all Java objects need at runtime. 
+
+#### `Object` methods
+These are methods that EVERY object has.
+
+1. `equals(Object o)` - tells you if two objects are considered 'equal'
+
+```java
+Dog d = new Dog();
+Cat c = new Cat();
+
+d.equals(c); // false
+```
+
+2. `getClass()` - gives you back the class that object was instantiated from
+```java
+Cat c = new Cat();
+c.getClass(); // Cat
+```
+
+3. `hashCode()` - prints out a hashcode for the object (a unique ID)
+```java
+Cat c = new Cat():
+c.hashCode(); // 8202111
+```
+
+4. `toString()` - prints a string message with the name of the class and some other number 
+```java
+Cat c = new Cat();
+c.toString(); // Cat@7d277f
+```
+
+### `Object` instances
+
+It's acceptable to make `Object` instances because there are times when you'd want a generic object to use. A lightweight object. The most common use of an instance of type `Object` is for thread synchronization. 
+
+### The price of using polymorphic references of type `Object`
+
+You can't simply use `Object` for all your ultra-flexible polymorphic arguments and return types. `ArrayList` example of why:
+
+```java
+ArrayList<Dog> dogList = new ArrayList<Dog>();
+Dog aDog = new Dog();
+dogList.add(aDog);
+Dog anotherDog = dogList.get(0); // this works
+```
+
+```java
+ArrayList<Object> dogList = new ArrayList<Object>();
+Dog aDog = new Dog();
+dogList.add(aDog);
+Dog anotherDog = dogList.get(0);
+// won't compile because the ArrayList is designed to hold any type of Object, the get() methods returns type Object and not Dog
+// objects come out of the list as generic instances of class Object, the compiler cannot assume things
+```
+
+![](@attachment/Clipboard_2022-07-26-10-39-41.png)
 
 
 
