@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-07-26-10-39-41.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 8: Abstract Classes'
 created: '2022-07-25T03:13:54.580Z'
-modified: '2022-07-26T13:32:08.626Z'
+modified: '2022-07-27T11:36:44.645Z'
 ---
 
 # Chapter 8: Abstract Classes
@@ -25,7 +25,7 @@ public abstract class Animal {
 
 You can still use the abstract class as reference types, polymorphic arguments, or polymorphic return types.
 
-When designing an inheritance tree, you have to decide which classes are _abstract_ and which classes are _concrete_. __Concrete classes_ are classes that are specific enough to be instantiated ie. it's OK to make objects of this type. 
+When designing an inheritance tree, you have to decide which classes are _abstract_ and which classes are _concrete_. __Concrete classes__ are classes that are specific enough to be instantiated ie. it's OK to make objects of this type. 
 
 * an abstract class has no value unless it is extended, the guys doing the work for abstract classes at runtime are the instances of a subclass of the abstract class
 

@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 8: Interfaces'
 created: '2022-07-26T13:36:13.221Z'
-modified: '2022-07-26T14:07:43.845Z'
+modified: '2022-07-27T11:50:44.044Z'
 ---
 
 # Chapter 8: Interfaces
@@ -40,16 +40,12 @@ Java interface's solve the problem of the DDD while giving you the polymorphic b
 
 To define an interface:
 ```java
-public interface Pet {
-  ...
-}
+public interface Pet {...}
 ```
 
 To implement an interface:
 ```java
-public class Dog extends Canine implements Pet {
-  ...
-}
+public class Dog extends Canine implements Pet {...}
 ```
 
 Making the `Pet` interface:
@@ -67,3 +63,30 @@ public interface Pet {
   void play();
 }
 ```
+
+### The benefits of interfaces
+
+Even though interfaces don't buy you the benefits of multiple inheritance because it does not provide method implementation, what it buys you is the protocol you can use for polymorphism. You can use interface reference types and pass it any object that implements the interface just like how you'd pass an object to a reference variable that is its superclass. That is, when you use an interface as a polymorphic type, the objects can be _anywhere_ in the inheritance tree. When using abstract classes as a polymorphic type, the objects have to be one of its subclasses in the inheritance tree. 
+
+Moreover, with interfaces, a class doesn't have to come from just one inheritance tree. A class can extend one class and implement an interface. And then another class might implement the same interface but come from a completely different inheritance tree. You get to treat objects by the role they play and not by the parent class that defines them. 
+
+### Multiple interfaces
+
+A class can implement multiple interfaces:
+```java
+public class Dog extends Canine implements Pet, Saveable, Paintable {...}
+```
+
+### Subclass, abstract class, or interface?
+
+- __subclass:__ make a subclass only when you need to make a __more specific__ version of a class and need to override or add new behavior
+- __abstract class:__ use an abstract class if you want to define a __template__ for a group of subclasses, and you have at least some implementation code that all subclasses could use
+- __interface:__ use an interface when you want to define a __role__ that other classes can play, regardless of where those classes are on the inheritance tree
+
+### Family values
+ 
+ Java weighs in on family values: single parents only. __A Java class can only have one parent and that parent defines who you are. But you can implement multiple interfaces, and those interfaces define roles you can play.__
+
+
+
+
