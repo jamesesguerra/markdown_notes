@@ -1,8 +1,9 @@
 ---
+attachments: [Clipboard_2022-07-27-23-11-20.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 9: Constructors and Garbage Collection'
 created: '2022-07-27T11:52:19.360Z'
-modified: '2022-07-27T13:24:01.568Z'
+modified: '2022-07-28T06:30:50.812Z'
 ---
 
 # Chapter 9: Constructors and Garbage Collection
@@ -121,8 +122,141 @@ The compiler will only create a no-arg constructor for you if you don't say anyt
 
 Also, if you have more than one constructor in a class, the constructors MUST have different argument lists. It's the variable type (int, Dog, etc.) and order that matters, not the name of the parameters. You _can_ have two constructors that have identical types as long as the order is different.
 
+### Space for an object's superclass parts
+
+Every object holds not just its own declared instance variables, but also everything from its superclasses (which, at a minimum, means class `Object` since every class extends `Object`).
+
+So when an object is created, the object gets space for _all_ the instance variables, from all the way up the inheritance tree. A superclass might have setter methods encapsulating a private variable, but that variable has to live somewhere. When an object is created, it's almost as though multiple object materialize -- the object being `new`'d and one object per each superclass. It's better to think of it as the object being created having layers of itself representing each superclass. There is only one object on the heap, but it contains its subclass parts and all the parts of its superclass/es.
+
+![](@attachment/Clipboard_2022-07-27-23-11-20.png)
+
+### The role of superclass constructors
+
+_All the constructors in an object's inheritance tree must run when you make a new object._ That means every superclass has a constructor, and each constructor up the hierarchy runs at the time an object of a subclass is created. 
+
+Saying `new` on a subclass starts the whole constructor chain reaction. Even abstract classes have constructors. The super constructors run to build out the superclass parts of the object. A subclass might inherit methods that depend on superclass state (the value of instance variables in the superclass). For an object to be fully-formed, all the superclass parts of itself must be fully-formed, so that's why the superclass constructors must run. Even if the superclass has instance variables that the subclass doesn't inherit (if the variables are private), the subclass still depends on superclass methods (superclass getters and setters) that _use_ those variables.
+
+### Invoking a superclass constructor
+
+The only way to call a super constructor is by calling `super()`. The compiler will put in a call to `super()` if you don't in one of two ways:
+
+1. If you don't provide a constructor, the compiler puts in one that looks like this:
+```java
+public className() {
+  super();
+}
+```
+
+2. If you _do_ provide a constructor but don't put in a call to `super()`, the compiler will put a call to `super()` in each of your overloaded constructors. The compiler-inserted call to `super()` is always a no-arg constructor. 
+
+A call to `super()` in your constructor puts the superclass constructor on the top of the stack. That superclass constructor will then call its superclass constructor as well until the `Object` constructor is on the top of the stack.
+
+The superclass parts of an object have to be fully-formed before the subclass parts can be constructed. A subclass object might depend on things it inherits from the superclass, so it's important that those things be finished.
+
+__The call to `super()` must be the first statement in each constructor:__
+```java
+public className() {
+  super();
+  // some code
+}
+```
+
+__Superclass constructors with arguments__
+
+You can use a subclass constructor to call the superclass constructor with arguments. You can do this if you want to set the instance variables of the superclass from the arguments received by the subclass constructor.
+
+```java
+// subclass constructor
+public Dog(String name) {
+  super(name);
+}
+
+// superclass constructor
+public Canine(String name) {
+  dogName = name;
+}
+```
+
+### Invoking one overloaded constructor from another 
+
+If you have overloaded constructors that basically do the same thing, you can use `this()` to call a constructor from another overloaded constructor in the same class. This reduces duplicate code by having the initially-invoked constructor to call "The Real Constructor" with the bulk of the constructor code (possibly including the call to `super()`) and let it finish the job of construction.
+
+__Every constructor can have a call to `super()` or `this()`, but never both. Both of them have to be the first statement in a constructor.__
+
+```java
+// duplicate code
+
+public Dog() {
+  // set default values
+  size = 25;
+  name = "Fido";
+}
+
+public Dog(int s, String n) {
+  size = s;
+  name = n;
+}
+```
+
+```java
+// no duplicate code with this()
+
+public Dog() {
+  this(25, "Fido"); // calls the overloaded constructor with the signature 'Dog(int, String)'
+}
+
+public Dog(int s, String n) {
+  size = s;
+  name = n;
+}
+```
+
+### Object lifespan
+
+An object's life depends on the life of references referring to it. If the reference is "alive", the object is still on the heap. If the reference dies, the object will die.
+
+1. A __local variable__ lives only within the method that declared the variable.
+```java
+public void methodName() {
+  int s = 30;
+  // 's' can only be used within this method
+  // when this method ends, 's' disappears completely
+}
+```
+
+2. An __instance variable__ lives as long as the object does. If the object is still alive, so are its instance variables.
+
+#### Reference variables
+
+A reference variable can be used only when it's in scope, which means you can't use an object's remote control unless you've got a reference variable that's in scope.
+
+__How variable life affects object life__
+
+An object is alive as long as there are live references to it. If the stack frame holding the reference gets popped off the stack, the object it's programmed to control is abandoned on the heap if that was the _only_ live reference to it. 
+
+Once an object is eligible for GC, you don't have to worry about reclaiming the memory that object was using. If your program gets low on memory, GC will destroy some or all of the eligible objects. Your job is to make sure that you abandon objects when you're done with them.
+
+3 ways to get rid of an object's reference:
+
+1. The reference goes out of scope, permanently: 
+```java
+void go() {
+  Life z = new Life(); // reference 'z' dies at the end of the method
+}
+```
+
+2. The reference is assigned another object:
+```java
+Life z = new Life(); // this object is abandoned when 'z' is reprogrammed to another object
+z = new Life();
+```
+
+3. The reference is explicitly set to `null`:
+```java
+Life z = new Life(); // this object is abandoned when 'z' is deprogrammed
+z = null; 
+```
 
 
 
-
-
+ 
