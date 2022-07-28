@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-07-27-23-11-20.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 9: Constructors and Garbage Collection'
 created: '2022-07-27T11:52:19.360Z'
-modified: '2022-07-28T06:30:50.812Z'
+modified: '2022-07-28T12:36:26.789Z'
 ---
 
 # Chapter 9: Constructors and Garbage Collection
@@ -236,7 +236,7 @@ An object is alive as long as there are live references to it. If the stack fram
 
 Once an object is eligible for GC, you don't have to worry about reclaiming the memory that object was using. If your program gets low on memory, GC will destroy some or all of the eligible objects. Your job is to make sure that you abandon objects when you're done with them.
 
-3 ways to get rid of an object's reference:
+__3 ways to get rid of an object's reference:__
 
 1. The reference goes out of scope, permanently: 
 ```java
