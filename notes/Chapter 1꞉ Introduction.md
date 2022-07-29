@@ -1,12 +1,12 @@
 ---
 attachments: [Clipboard_2022-07-19-21-46-53.png]
 tags: [Notebooks/Head First Java]
-title: Chapter 1
+title: 'Chapter 1: Introduction'
 created: '2022-07-19T13:41:53.167Z'
-modified: '2022-07-20T02:50:46.019Z'
+modified: '2022-07-29T13:35:16.928Z'
 ---
 
-# Chapter 1
+# Chapter 1: Introduction
 
 #### Write once run anywhere
 Type source code -> Compiler compiles the code -> Java bytecode is produced -> JVM reads and runs the bytecode

@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 10: Statics'
 created: '2022-07-28T12:24:26.934Z'
-modified: '2022-07-28T13:35:11.600Z'
+modified: '2022-07-29T02:11:06.881Z'
 ---
 
 # Chapter 10: Statics
@@ -63,12 +63,12 @@ Because non-static methods usually use instance variable state to affect the beh
 
 ### Static variables
 
-Static variables are the same for ALL instances of the class. A static variable gives you a value shared by all instances of the class. In other words, one value per _class_, instead of one value per _instance._ Non-static variables give you one variable per instance.
+Static variables are the same for ALL instances of the class. In other words, one value per _class_, instead of one value per _instance._ Non-static variables give you one variable per instance.
 
 You can think of a static variable that lives in a CLASS instead of in an object:
 
-instance variables: 1 per __instance__
-static variables: 1 per __class__
+- instance variables: 1 per __instance__
+- static variables: 1 per __class__
 
 ### Initializing a static variable
 
