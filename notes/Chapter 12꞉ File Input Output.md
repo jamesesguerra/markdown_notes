@@ -1,11 +1,11 @@
 ---
 tags: [Notebooks/Head First Java]
-title: 'Chapter 12: File I/O'
+title: 'Chapter 12: File Input Output'
 created: '2022-07-29T14:26:24.846Z'
-modified: '2022-07-30T06:05:32.368Z'
+modified: '2022-07-30T11:52:45.662Z'
 ---
 
-# Chapter 12: File I/O
+# Chapter 12: File Input Output
 
 ### Saving data to a text file
 
@@ -116,7 +116,7 @@ class ReadAFile {
 
 ### `split()`
 
-Splitting a string using a delimiter:
+Splitting a string using a delimiter.
 
 ```java
 String toTest = "What is blue + yellow?/green";
