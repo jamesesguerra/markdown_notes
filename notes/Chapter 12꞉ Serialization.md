@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-07-29-20-41-59.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 12: Serialization'
 created: '2022-07-29T12:17:05.240Z'
-modified: '2022-07-29T14:26:48.277Z'
+modified: '2022-07-30T06:13:03.336Z'
 ---
 
 # Chapter 12: Serialization
@@ -22,7 +22,7 @@ Write a file with delimiters that other programs can parse. For example, a tab-d
 
 But regardless of the method you use, the fundamental I/O techniques are the same: write some data to something, and usually that something is either a file on a disk or a stream coming from a network connection. Reading the data is the same process in reverse. 
 
-Serialized files are much harder for humans to read, but it's much easier (and safer) for your program to restore objects from serialization thatn from a text file.
+Serialized files are much harder for humans to read, but it's much easier (and safer) for your program to restore objects from serialization than from a text file.
 
 #### Writing a serialized object to a file
 
@@ -156,4 +156,7 @@ os.close();
 
 __NOTE:__ Static variables aren't serialized. Static means "one per class" not "one per object".
 
+### serialVersionUID
+
+Object's must be stamped with a `serialVersionUID` so that the JVM can check in its deserialization process whether it's compatible with the current classes. It's possible that you made changes to the class that make them incompatible.
 
