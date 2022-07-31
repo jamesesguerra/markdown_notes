@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-07-30-20-18-08.png, Clipboard_2022-07-30-20-27-14.p
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Networking and Threads'
 created: '2022-07-30T06:13:52.725Z'
-modified: '2022-07-30T12:27:14.307Z'
+modified: '2022-07-31T05:39:42.678Z'
 ---
 
 # Chapter 13: Networking and Threads
@@ -12,7 +12,7 @@ Connecting to the outside world is made easy with Java by the classes in the `ja
 
 ### Connecting, Sending, and Receiving
 
-1. __Connect__ - Client connects to the server by estabilishing a __Socket__ connection.
+1. __Connect__ - Client connects to the server by establishing a __Socket__ connection.
 2. __Send__ - Client __sends__ a message to the server.
 3. __Receive__ - Client __gets__ a message from the server.
 
@@ -86,7 +86,75 @@ writer.print("another message");
 
 ![](@attachment/Clipboard_2022-07-30-20-27-14.png)
 
+### Writing a server application
 
+All you need to write a server application is a `ServerSocket` which waits for client requests (when a client makes a new `Socket()`) and a plain old Socket socket to use for communication with the client.
+
+1. Server application makes a `ServerSocket` on a specific port. This starts the server application listening for client requests coming in for port 4242.
+```java
+ServerSocket serverSock = new ServerSocket(4242);
+```
+
+2. Client makes a Socket connection to the server application. Client knows the IP address and port number.
+```java
+Socket sock = new Socket("190.165.1.103", 4242);
+```
+
+3. Server makes a new Socket to communicate with this client. The `accept()` method blocks (just sits there) while it's waiting for a client Socket connection. When a client finally tries to connect, the method returns a plain old Socket (on a different port) that knows how to communicate with the client. The Socket is on a different port than the ServerSocket, so that the ServerSocket can go back to waiting for other requests.
+
+#### Client code
+```java
+import java.io.*;
+import java.net.*;
+
+public class AdviceClient {
+	
+	public static void main(String[] args) {
+		try {
+			Socket s = new Socket("127.0.0.1", 5000);
+			
+			InputStreamReader streamReader = new InputStreamReader(s.getInputStream());
+			BufferedReader reader = new BufferedReader(streamReader);
+			
+			String advice = reader.readLine();
+			System.out.println("Today you should " + advice);
+			
+			reader.close();
+		} catch(IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+}
+```
+
+#### Server code
+```java
+import java.io.*;
+import java.net.*;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		try {
+			ServerSocket serverSock = new ServerSocket(5000);
+			System.out.println("Server running on port 5000...");
+			
+			while (true) {
+				Socket sock = serverSock.accept();
+				
+				PrintWriter writer = new PrintWriter(sock.getOutputStream());
+				String advice = "get a life";
+				
+				writer.println(advice);
+				writer.close();
+			}
+		} catch(IOException ioe) {
+			ioe.printStackTrace();
+		}		
+	}
+}
+ 
+```
 
 
 

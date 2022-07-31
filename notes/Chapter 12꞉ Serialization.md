@@ -3,12 +3,12 @@ attachments: [Clipboard_2022-07-29-20-41-59.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 12: Serialization'
 created: '2022-07-29T12:17:05.240Z'
-modified: '2022-07-30T06:13:03.336Z'
+modified: '2022-07-31T05:12:25.758Z'
 ---
 
 # Chapter 12: Serialization
 
-__Rationale:__ Object can be flattened and inflated. Objects have state and behavior. Behavior lives in the class, but state lives within each individual object. If your program needs to save state, you can flatten the object itself and inflate it to get it back. 
+__Rationale:__ Objects can be flattened and inflated. Objects have state and behavior. Behavior lives in the class, but state lives within each individual object. If your program needs to save state, you can flatten the object itself and inflate it to get it back. 
 
 ### Saving Objects
 
