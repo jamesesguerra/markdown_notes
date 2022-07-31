@@ -1,12 +1,12 @@
 ---
 attachments: [Clipboard_2022-07-30-20-18-08.png, Clipboard_2022-07-30-20-27-14.png]
 tags: [Notebooks/Head First Java]
-title: 'Chapter 13: Networking and Threads'
+title: 'Chapter 13: Networking'
 created: '2022-07-30T06:13:52.725Z'
-modified: '2022-07-31T05:39:42.678Z'
+modified: '2022-07-31T14:00:30.712Z'
 ---
 
-# Chapter 13: Networking and Threads
+# Chapter 13: Networking
 
 Connecting to the outside world is made easy with Java by the classes in the `java.net` library. Sending and receiving data over a network is just I/O with a slightly different connection stream at the end of the chain. 
 
@@ -28,13 +28,13 @@ Socket mySocket = new Socket("196.164.1.103", 5000);
 
 ### Ports
 
-A TCP port is just a 16-bit bit number that identifies a specific program on the server. They're just numbers representing an application. Without port numbers, the server would have no way of knowing which application a client wanted to connect to. 
+A TCP port is just a 16-bit number that identifies a specific program on the server. They're just numbers representing an application. Without port numbers, the server would have no way of knowing which application a client wanted to connect to. 
 
 When you write a server program, you'll include code that tells the program which port number you want it to run on. Ideally this is a number between 1024 and 65,535 since TCP port numbers from 0 to 1023 are reserved for well-known services.
 
 ### Reading from a Socket
 
-To read data from a Socket, use a `BufferedReader`. You can use regular I/O streams since most of your I/O work won't care what your high-level chain stream is actually connected to. You can use a `BufferedReader` just like how you would when you write to a file. The only difference is that the underlying connection stream is connected to a Socket rathern than a file.
+To read data from a Socket, use a `BufferedReader`. You can use regular I/O streams since most of your I/O work won't care what your high-level chain stream is actually connected to. You can use a `BufferedReader` just like how you would when you write to a file. The only difference is that the underlying connection stream is connected to a Socket rather than a file.
 
 1. __Make a Socket connection to the server__
 ```java
@@ -155,6 +155,12 @@ public class Main {
 }
  
 ```
+
+### Writing a ChatClient
+
+You can send messages to the server but you don't get to read any messages from other participants. 
+
+__Big question:__ how do you get messages from the server? Doing option three is reading messages as soon as they're sent. However, how do you do two things at the same time? Threads (see threads).
 
 
 
