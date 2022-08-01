@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Threads'
 created: '2022-07-31T14:00:37.051Z'
-modified: '2022-08-01T03:52:34.246Z'
+modified: '2022-08-01T05:14:42.195Z'
 ---
 
 # Chapter 13: Threads
@@ -140,4 +140,16 @@ The thread scheduler can move a running thread into a blocked state, for a varie
 All of those conditions (and more) cause a thread to become temporarily not-runnable.
 
 ### The Thread Scheduler
+
+The thread scheduler makes all the decisions about who moves from runnable to running, and about when a thread leaves the running state. It decides who runs, and for how long, and where the threads go when the scheduler decides to kick them out of the running state.
+
+You can't control the scheduler. Most importantly, there are no guarantees about scheduling.
+
+The bottomline is this: __do not base your program's correctness on the scheduler working in a particular way.__ The scheduler implementations are different for different JVMs, and even running the same program on the same machine can give you different results.
+
+So what does this mean for write-once-run-anywhere? It means to write platform-independent Java code, your multi-threaded program must work no matter how the scheduler behaves. 
+
+The secret to almost everything is __sleep.__ Putting a thread to sleep, even for a few milliseconds, forces the currently-running thread to leave the running state, thus giving another thread a chance to run. The thread's `sleep()` method does come with one guarantee: a sleeping thread will not become the currently-running thread before the length of its sleep time has expired. 
+
+
 
