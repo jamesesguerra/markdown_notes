@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-07-30-20-18-08.png, Clipboard_2022-07-30-20-27-14.p
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Networking'
 created: '2022-07-30T06:13:52.725Z'
-modified: '2022-07-31T14:00:30.712Z'
+modified: '2022-08-01T02:08:49.379Z'
 ---
 
 # Chapter 13: Networking
@@ -158,9 +158,11 @@ public class Main {
 
 ### Writing a ChatClient
 
-You can send messages to the server but you don't get to read any messages from other participants. 
+You can send messages to the server but you don't get to read any messages from other participants.
 
 __Big question:__ how do you get messages from the server? Doing option three is reading messages as soon as they're sent. However, how do you do two things at the same time? Threads (see threads).
+
+__Another problem:__ The server can only handle one client at a time. It can't accept a request from a client until it has finished with the current client and started the next iteration of the infinite loop (where it sits at the `accept()` call until a request comes in). So how can you make a server handle multiple requests concurrently? Use separate threads, and give each new client Socket to a new thread. 
 
 
 

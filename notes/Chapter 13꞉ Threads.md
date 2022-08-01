@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Threads'
 created: '2022-07-31T14:00:37.051Z'
-modified: '2022-07-31T14:23:14.261Z'
+modified: '2022-08-01T03:52:34.246Z'
 ---
 
 # Chapter 13: Threads
@@ -42,6 +42,102 @@ With more than one call stack, you get the _appearance_ of having multiple thing
 
 Remember, Java is just a process running on your underlying OS. So first, Java _itself_ has to be the 'currently executing process' on the OS. But once Java gets its turn to execute, exactly what does the JVM run? Whatever is on the top of the currently-running stack. And in 100 milliseconds, the currently executing code might switch to a different method on a different stack.
 
-One of the things a thread must do is keep track of which statement (of which method) is currently executing on the thread's
+One of the things a thread must do is keep track of which statement (of which method) is currently executing on the thread's stack. It might look something like this:
 
+1. __The JVM calls the `main()` method.__
+```java
+// the active thread
+public static void main(String[] args) {
+  ...
+}
+```
+
+2. __`main()` starts a new thread. The main thread is temporarily frozen while the new thread starts running.__
+```java
+Runnable r = new MyThreadJob();
+Thread t = new Thread(r);
+t.start(); // the thread starts and becomes the active thread
+Dog d = new Dog();
+```
+
+3. __The JVM switches between the new thread and the original main thread, until both threads complete.__
+
+
+### Launching a new thread
+
+1. __Make a `Runnable` object (the thread's job)
+Write a class that implements the `Runnable` interface, and that class is where you'll define the work that a thread will perform.
+```java
+Runnable threadJob = new MyRunnable();
+```
+
+2. __Make a `Thread` object (the worker) and give it a `Runnable` (the job)
+This tells the new `Thread` object which method to put on the bottom of the stack -- the `Runnable`'s `run()` method.
+```java
+Thread myThread = new Thread(threadJob);
+```
+
+3. __Start the `Thread`__
+Nothing happens until you call the `Thread`'s `start()` method. When the new thread starts up, it takes the `Runnable` object's `run()` method and puts it on the bottom of the new thread's stack.
+```java
+myThread.start();
+```
+
+### A thread needs a job
+
+`Runnable` is to `Thread` what a job is to a worker. A `Runnable` is the job a thread is supposed to run. A `Runnable` holds the method that goes on the bottom of the new stack: `run()`.
+
+The `Runnable` interface defines only one public method: `public void run()`. When you pass a `Runnable` to a `Thread` constructor, you're giving the `Thread` a way to get to a `run()` method. You're giving the `Thread` its job to do.
+
+### `Runnable` interface
+
+To make a job for your thread, implement the `Runnable` interface
+```java
+public class MyRunnable implements Runnable {
+  public void run() {
+    // this is where you put the JOB the thread is supposed to run
+    go();
+  }
+}
+```
+
+```java
+public class ThreadTester {
+  public static void main(String[] args) {
+    Runnable threadJob = new MyRunnable();
+    Thread myThread = new Thread(threadJob);
+
+    myThread.start();
+  }
+}
+```
+
+### The 3 states of a new thread
+
+1. __New__
+A `Thread` instance has been created but not started. In other words, there is a `Thread` object, but no _thread of execution_.
+```java
+Thread t = new Thread(r);
+```
+
+2. __Runnable__
+When you start the thread, it moves into the runnable state. This means that the thread is ready to run and just waiting for its big chance to be selected for execution. At this point, there is a new call stack for this thread.
+```java
+t.start();
+```
+
+3. __Running__
+The thread is now the currently running thread. Only the JVM thread scheduler can make that decision. You can sometimes influence that decision, but you cannot force a thread to move from runnable to running. In the running state, a thread has an active call stack and the method on top is executing.
+
+Once the thread becomes runnable, it can move back and forth between runnable, running, and an additional state: temporarily not runnable (aka 'blocked').
+
+__Typical running/runnable loop__
+Typically, a thread moves back and forth between runnable and running, as the JVM thread scheduler selects a thread to run and kicks it backout so another thread gets a chance.
+
+__A thread can be made temporarily not-runnable__
+The thread scheduler can move a running thread into a blocked state, for a variety of reasons. For example, a thread might be executing code to read from a Socket input stream, but there isn't any data to read. The scheduler will move the thread out of the running state until something becomes available. Or the executing code might have told the thread to put itself to sleep (`sleep()`). Or the thread might be waiting because it tried to call a method on an object, and that 'object' was locked. In that case, the thread can't continue until the object's lock is freed by the thread that has it.
+
+All of those conditions (and more) cause a thread to become temporarily not-runnable.
+
+### The Thread Scheduler
 
