@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Threads'
 created: '2022-07-31T14:00:37.051Z'
-modified: '2022-08-01T05:14:42.195Z'
+modified: '2022-08-01T13:03:24.597Z'
 ---
 
 # Chapter 13: Threads
@@ -65,13 +65,13 @@ Dog d = new Dog();
 
 ### Launching a new thread
 
-1. __Make a `Runnable` object (the thread's job)
+1. __Make a `Runnable` object (the thread's job)__
 Write a class that implements the `Runnable` interface, and that class is where you'll define the work that a thread will perform.
 ```java
 Runnable threadJob = new MyRunnable();
 ```
 
-2. __Make a `Thread` object (the worker) and give it a `Runnable` (the job)
+2. __Make a `Thread` object (the worker) and give it a `Runnable` (the job)__
 This tells the new `Thread` object which method to put on the bottom of the stack -- the `Runnable`'s `run()` method.
 ```java
 Thread myThread = new Thread(threadJob);
@@ -151,5 +151,26 @@ So what does this mean for write-once-run-anywhere? It means to write platform-i
 
 The secret to almost everything is __sleep.__ Putting a thread to sleep, even for a few milliseconds, forces the currently-running thread to leave the running state, thus giving another thread a chance to run. The thread's `sleep()` method does come with one guarantee: a sleeping thread will not become the currently-running thread before the length of its sleep time has expired. 
 
+### Putting the thread to sleep
+
+One of the best ways to help your thread take turns (make sure other threads get a chance to run) is to put them to sleep periodically. All you need to do is call the static `sleep()` method.
+
+```java
+// sleep for 2 secs
+Thread.sleep(2000);
+```
+
+The code above will knock a thread out of the running state and keep it out of the runnable state for two seconds. 
+
+The sleep method throws an `InterruptedException` so all calls must be wrapped in a try/catch. So a sleep call really looks like this:
+```java
+try {
+  Thread.sleep(2000);
+} catch(InterruptedException ie) {
+  ie.printStackTrace();
+}
+```
+
+When the thread wakes up, it always goes back to the runnable state and waits for the thread scheduler to choose it to run again.
 
 
