@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Threads'
 created: '2022-07-31T14:00:37.051Z'
-modified: '2022-08-01T13:03:24.597Z'
+modified: '2022-08-02T01:54:25.517Z'
 ---
 
 # Chapter 13: Threads
@@ -172,5 +172,69 @@ try {
 ```
 
 When the thread wakes up, it always goes back to the runnable state and waits for the thread scheduler to choose it to run again.
+
+### The dark side of threads: race conditions
+
+One potential scenario: two or more threads have access to a single object's data. In other words, methods executing on different stacks are both calling getters and setters on a single object on the heap.
+
+#### Ryan and Monica race condition problem
+
+Ryan and Monica agreed that neither of them will overdraw the checking account. So the procedure is, whoever wants to withdraw money must check the balance in the account before making the withdrawal. 
+
+Race condition: Ryan needed $50 so he checked the balance in the account and saw that it was $100. No problem. So he plans to withdraw the money, but first he falls asleep. While Ryan's asleep, Monica wants to withdraw $100 and she checks the balance and it's still $100 because Ryan hasn't made his withdrawal. So she thinks no problem and makes the withdrawal. But then Ryan wakes up, completes his withdrawal, and now they're overdrawn. He went ahead and completed his transaction without checking the balance again.
+
+__Solution:__ You can't stop Ryan from falling asleep but you can make sure that Monica can't get her hands on the bank account until after he wakes up.
+
+#### The problem in code
+
+Class `RyanaAndMonicaJob` have an instance variable `BankAccount` which represents the single bank account object that they access. 
+
+The `run()` method of the threads (the job of Ryan and Monica):
+
+```java
+public void run() {
+  makeWithdrawal(10);
+  if (account.getBalance() < 10) {
+    System.out.println("Overdrawn!");
+  }
+}
+```
+
+The `makeWithdrawal()` method:
+```java
+public void makeWithdrawal(int amount) {
+  if (account.getBalance >= amount) {
+    System.out.println("Withdrawing...");
+    // sleep
+    // then withdraw amount
+  }
+}
+```
+
+#### Using `synchronized`
+
+You need to make sure that once a thread enters the `makeWithdrawal()` method, it must be allowed to finish the method before any other thread can enter. In other words, you must make sure that a thread that accesses the bank account locks it and keeps the key until they finish the transaction. You don't put a lock on the bank account itself, you lock the method that does the banking transaction. You `synchronize` the method that acts on that data. Just add the `synchronized` modifier to the method declaration:
+
+```java
+private synchronized void makeWithdrawal(int amount) {...}
+```
+
+
+#### Using an object's lock
+
+Every object has a lock. Most of the time, the lock is unlocked and you can imagine a virtual key sitting with it. They only come into play with synchronized methods. When an object has one or more synchronized methods, a thread can enter a synchronized method only if the thread can get the key to the object's lock.
+
+Locks aren't per method, they're per object. It means you can't have two threads entering any of the synchronized methods. 
+
+The goal of synchronization is to protect critical data. You don't lock the data itself, you synchronize the methods that access that data.
+
+When a thread goes through its call stack and hits a synchronized methods, it recognizes that it needs a key for that object before it can enter the method. It looks for the key, and if the key is available, the thread grabs the key and enters the method. From then on, it hangs on to the key and won't give it up until it completes the synchronized method. 
+
+__Synchronizing methods that act on the shared data keeps the steps in the method as one unbreakable unit.__
+
+
+
+
+
 
 
