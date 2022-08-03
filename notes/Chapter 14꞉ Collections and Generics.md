@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-08-02-20-31-17.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 14: Collections and Generics'
 created: '2022-08-02T04:52:57.750Z'
-modified: '2022-08-03T12:39:11.242Z'
+modified: '2022-08-03T13:17:23.571Z'
 ---
 
 # Chapter 14: Collections and Generics
@@ -93,11 +93,20 @@ __NOTE:__ You probably won't need to learn how to create your own generic classe
 
 ### Using generic classes
 
-Generic classes allows you to have the ability to have one class that is flexible for many different types.
+Generic classes allow you to have the ability to have one class that is flexible for many different types. With generics, you don't need to explicitly say what type are the instance variables of that class in the class definition. You can pass it in instead. 
 
-Start by looking at the `ArrayList` since it's the most used generified type. The two key areas to look at in a generified class are:
-1. The class declaration
-2. The method declarations that let you add elements
+```java
+// whatever type you pass in will be substituted in for all the 'T's in the class
+// T can be anything
+public class Printer<T> {...}
+```
+
+#### Bounded generics
+You can restrict the type argument that you pass to the type parameter of the generified class.
+```java
+// you can only pass in types that are subtypes of Animal
+public class Printer<T extends Animal> {...}
+```
 
 #### Understanding `ArrayList` documentation
 
