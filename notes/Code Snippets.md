@@ -2,7 +2,7 @@
 tags: [Notebooks/ASSI]
 title: Code Snippets
 created: '2022-07-22T03:38:13.422Z'
-modified: '2022-07-27T12:57:37.919Z'
+modified: '2022-08-03T05:34:34.219Z'
 ---
 
 # Code Snippets
@@ -17,5 +17,10 @@ modified: '2022-07-27T12:57:37.919Z'
 ```bash
 celery --app fresaa.celery_runner worker -l INFO
 ```
+
+add and test the periodic refresh and it works ok naman so ill just push a branch in case we still want to add that
+
+
+move styling into css classes
 
 

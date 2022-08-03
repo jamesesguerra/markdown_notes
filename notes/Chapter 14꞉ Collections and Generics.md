@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-08-02-20-31-17.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 14: Collections and Generics'
 created: '2022-08-02T04:52:57.750Z'
-modified: '2022-08-03T01:13:33.453Z'
+modified: '2022-08-03T12:39:11.242Z'
 ---
 
 # Chapter 14: Collections and Generics
@@ -82,7 +82,7 @@ How does polymorphism work with generic types? If you have an `ArrayList<Animal>
 List<Song> songList = new ArrayList<Song>();
 ```
 
-3. Declaring (and invoking) methods that take generic types
+3. __Declaring (and invoking) methods that take generic types__
 If you have a method that takes as a parameter an `ArrayList` of `Animal` objects, what does that really mean? Can you also pass it an `ArrayList` of `Dog` objects? 
 ```java
 void foo(List<Song> list) 
@@ -92,6 +92,8 @@ x.foo(songList)
 __NOTE:__ You probably won't need to learn how to create your own generic classes.
 
 ### Using generic classes
+
+Generic classes allows you to have the ability to have one class that is flexible for many different types.
 
 Start by looking at the `ArrayList` since it's the most used generified type. The two key areas to look at in a generified class are:
 1. The class declaration
@@ -135,7 +137,7 @@ public class ArrayList<E> extends AbstractList<E> {
 
 2. __Using a type parameter that was not defined in the class declaration__
 ```java
-pubilic <T extends Animal> void takeThing(ArrayList<T> list)
+public <T extends Animal> void takeThing(ArrayList<T> list)
 ```
 
 This:
