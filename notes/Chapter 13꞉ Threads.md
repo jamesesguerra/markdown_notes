@@ -2,7 +2,7 @@
 tags: [Notebooks/Head First Java]
 title: 'Chapter 13: Threads'
 created: '2022-07-31T14:00:37.051Z'
-modified: '2022-08-02T01:54:25.517Z'
+modified: '2022-08-02T04:58:58.815Z'
 ---
 
 # Chapter 13: Threads
@@ -228,7 +228,7 @@ Locks aren't per method, they're per object. It means you can't have two threads
 
 The goal of synchronization is to protect critical data. You don't lock the data itself, you synchronize the methods that access that data.
 
-When a thread goes through its call stack and hits a synchronized methods, it recognizes that it needs a key for that object before it can enter the method. It looks for the key, and if the key is available, the thread grabs the key and enters the method. From then on, it hangs on to the key and won't give it up until it completes the synchronized method. 
+When a thread goes through its call stack and hits a synchronized method, it recognizes that it needs a key for that object before it can enter the method. It looks for the key, and if the key is available, the thread grabs the key and enters the method. From then on, it hangs on to the key and won't give it up until it completes the synchronized method. 
 
 __Synchronizing methods that act on the shared data keeps the steps in the method as one unbreakable unit.__
 
