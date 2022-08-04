@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-08-02-20-31-17.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 14: Collections and Generics'
 created: '2022-08-02T04:52:57.750Z'
-modified: '2022-08-04T04:58:21.610Z'
+modified: '2022-08-04T13:08:55.104Z'
 ---
 
 # Chapter 14: Collections and Generics
@@ -193,7 +193,71 @@ public interface Comparator<T> {
 }
 ```
 
+### Dealing with duplicates
 
+You need a Set instead of a List.
+
+- __LIST__ - when sequence matters; collections that know about index position; you can have more than one element referencing the same object
+- __SET__ - when uniqueness matters; collections that do not allow duplicates
+- __MAP__ - when finding something by key matters; key-value pairs; you can have to keys referencing the same value, but you cannot have duplicate keys
+
+#### Using a HashSet
+```java
+HashSet<Song> songSet = new HashSet<>();
+songSet.addAll(songList);
+```
+
+### Object equality
+
+#### reference equality vs. object equality
+
+- __reference equality__ 
+  - two references pointing to one object on the heap 
+  - if you call the `hashCode()` method on both references, you'll get the same result
+  - use the `==` operator
+
+- __object equality__
+  - two references, two objects on the heap, but the objects are considered meaningfully equivalent
+  - if you want to treat two different objects as equal, you must override both the `hashCode()` and `equals()` methods inherited from the class `Object`
+
+#### Overriden `equals` and `hashCode` method of `Song`
+
+```java
+public boolean equals (Object aSong) {
+  Song s = (Song) aSong;
+  return getTitle().equals(s.getTitle());
+} 
+
+public int hashCode() {
+  return title.hashCode();
+}
+```
+
+### TreeSet: sorted set
+
+If you want a set to stay sorted, use the TreeSet. It prevents duplicates while keeping the list sorted.
+
+It works like the `sort()` method in that if you make it using its no-arg constructor, the TreeSet uses each object's `compareTo()` method for the sort. But you also have the option of passing a Comparator to the TreeSet constructor.
+
+#### TreeSet elements must be comparable
+
+You have to tell the TreeSet how objects should be sorted. One of these things must be true:
+
+- The elements in the list must be of a type that implements `Comparable`
+- You use the TreeSet's overloaded constructor that takes a `Comparator`
+
+### Maps
+
+Maps are part of Java collections but they don't implement the Collection interface. Use maps if you want a collection that acts like a property list, where you give it a name and it gives you back the value. Although keys will often be Strings, they can be any Java object. 
+
+HashMaps need two type parameters, one for the key and one for the value:
+```java
+HashMap<String, Integer> scores = new HashMap<>();
+scores.put("Kathy", 42);
+scores.put("Jason", 24);
+
+scores.get("Kathy"); // 42
+```
 
 
 
