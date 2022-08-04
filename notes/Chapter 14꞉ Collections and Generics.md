@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-08-02-20-31-17.png]
 tags: [Notebooks/Head First Java]
 title: 'Chapter 14: Collections and Generics'
 created: '2022-08-02T04:52:57.750Z'
-modified: '2022-08-03T13:17:23.571Z'
+modified: '2022-08-04T04:58:21.610Z'
 ---
 
 # Chapter 14: Collections and Generics
@@ -164,6 +164,39 @@ Both are legal but they're different.
 The first one, where `<T extends Animal>` is part of the method declaration, means that any `ArrayList` declared of a type that is `Animal`, or one of `Animal`'s subtypes, is legal. So you could invoke the top method using an `ArrayList<Dog>`, `ArrayList<Cat>`, etc.
 
 The bottom one means that only an `ArrayList<Animal>` is legal. In other words, while the first version takes an `ArrayList` of any type that is a type of `Animal`, the second version takes only an `ArrayList` of type `Animal`
+
+### `Comparable`
+The reason why the `sort()` method of the `Collections` class cannot take in the `ArrayList` of songs is because the method only takes in `List`s that implement the `Comparable` interface.
+
+```java
+public interface Comparable<T> {
+  int compareTo(T o) {...}
+}
+```
+
+#### New and improved `Song` class
+
+```java
+public class Song implements Comparable<Song> {
+  public int compareTo(Song s) {
+    return title.compareTo(s.getTitle());
+  }
+}
+```
+
+#### Using a custom comparator
+
+What if you wanted to sort the list by artist as well. The `sort()` method of the `Collections` class has an overloaded method to take something called a Comparator. It's a separate interface:
+```java
+public interface Comparator<T> {
+  int compare(T o1, T o2) {...}
+}
+```
+
+
+
+
+
 
 
 
