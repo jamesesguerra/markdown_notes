@@ -12,3 +12,5 @@ A queue supports two basic operations—enqueue and dequeue. (If the queue is em
 A queue can be implemented using a linked list, in which case these operations have 0(1) time complexity. The queue API often includes other operations, e.g., a method that returns the item at the head of the queue without removing it, a method that returns the item at the tail of the queue without removing it, etc. A queue can also be implemented using an array.
 
 A deque, also sometimes called a double-ended queue, is a doubly linked list in which all insertions and deletions are from one of the two ends of the list, i.e., at the head or the tail. An insertion to the front is commonly called a push, and an insertion to the back iscommonly called an inject. A deletion from the front iscommonly called a pop, and a deletion from the back is commonly called an eject. (Different languages and libraries may have different nomenclature.)
+
+![image](https://user-images.githubusercontent.com/68677613/183042369-8d4fc7c1-83be-4065-ac7c-8b1de6e844da.png)
