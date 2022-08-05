@@ -14,3 +14,5 @@ A heap (also referred to as a priority queue) is a specialized binary tree. Spec
 A max-heap supports 0(log n) insertions, 0(1) time lookup for the max element, and 0(log n) deletion of the max element. The extract-max operation is defined to delete and return the maximum element. See Figure11.1(b) for an example of deletion of the max element. Searching for arbitrary keys has 0(n) time complexity.
 
 The min-heap is a completely symmetric version of the data structure and supports 0(1) time lookups for the minimum element.
+
+![image](https://user-images.githubusercontent.com/68677613/183042665-53cbd78a-686f-4ad0-b4b5-cab1c04c83d2.png)
