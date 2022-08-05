@@ -13,4 +13,6 @@ A stack supports two basic operations—push and pop. Elements are added (pushed
 
 When the stack is implemented using a linked list these operations have O(1) time complexity. If it is implemented using an array, there is maximum number of entries it can have—push and pop are still O(1). If the array is dynamically resized, the amortized time for both push and pop is O(1). A stack can support additional operations such as peek, which returns the top of the stack without popping it.
 
+![image](https://user-images.githubusercontent.com/68677613/183042255-0694a55a-c51a-4025-ae8f-04fbc74c0645.png)
+
 
