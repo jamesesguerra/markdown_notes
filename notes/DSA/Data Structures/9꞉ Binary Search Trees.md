@@ -14,3 +14,6 @@ A BST is a binary tree as defined in Chapter 10 in which the nodes store keys th
 Key lookup, insertion, and deletion take time proportional to the height of the tree, which can in worst-case be 0(n), if insertions and deletions are naively implemented. However, there are implementations of insert and delete which guarantee that the tree has height 0(log n). These require storing and updating additional data at the tree nodes. Red-black trees are an example of height-balanced BSTs and are widely used in data structure libraries.
 
 A common mistake with BSTs is that an object that's present in a BST is to be updated. The consequence is that a lookup for that object will now fail, even though it's still in the BST.When a mutable object that's in a BST is to be updated, first remove it from the tree, then update it, then add it back. (As a rule, avoid putting mutable objects in a BST.)
+
+![image](https://user-images.githubusercontent.com/68677613/183042819-ebd151a6-bd94-42af-ace2-8187e7fa0d28.png)
+
