@@ -1,11 +1,11 @@
 ---
 tags: [Notebooks/Heroku]
-title: Getting Started
+title: 'Heroku: Getting Started'
 created: '2022-07-15T12:53:13.197Z'
-modified: '2022-07-19T12:50:46.601Z'
+modified: '2022-08-05T02:53:40.613Z'
 ---
 
-# Getting Started
+# Heroku: Getting Started
 
 ### define a procfile in the root directory of the app
 ```bash
