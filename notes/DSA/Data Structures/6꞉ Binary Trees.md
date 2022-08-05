@@ -9,6 +9,7 @@ modified: '2022-08-05T08:45:19.315Z'
 
 A binary tree is a data structure that is useful for representing hierarchy. Formally a binary tree is either empty or a root node r together with a left binary tree and a right binary tree. The subtrees themselves are binary trees. The left binary tree is sometimes referred to as the left subtree of the root, and the right binary tree is referred to as the right subtree of the root.
 
+![image](https://user-images.githubusercontent.com/68677613/183042515-ef6f3f54-82c1-4095-a4d6-f402681ed3af.png)
 
 Often the node stores additional data. Its prototype is listed as follows:
 
