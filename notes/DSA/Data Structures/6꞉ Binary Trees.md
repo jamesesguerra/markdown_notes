@@ -2,7 +2,7 @@
 tags: [Notebooks/Data Structures]
 title: '6: Binary Trees'
 created: '2022-08-05T08:37:55.057Z'
-modified: '2022-08-05T08:45:19.315Z'
+modified: '2022-08-06T04:29:00.556Z'
 ---
 
 # 6: Binary Trees
@@ -31,7 +31,7 @@ search path to L is {A, I, J, K, L). The depth of N is 4. Node M is the node of 
 
 A full binary tree is a binary tree in which every node other than the leaves has two children. A perfect binary tree is a full binary tree in which all leaves are at the same depth, and in which every parent has two children. A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled, and all nodes are as far left as possible. (This terminology is not universal, e.g., some authors use complete binary tree where we write perfect binary tree.) It is straightforward to prove using induction that the number of nonleaf nodes in a full binary tree is one less than the number of leaves. A perfect binary tree of height h contains exactly `2^h+1 - 1` nodes, of which 2^h are leaves. A complete binary tree on n nodes has height `[lg n]`. A left-skewed tree is a tree in which no node has a right child; a right-skewed tree is a tree in which no node has a left child. In either case, we refer to the binary tree as being skewed.
 
-A key computation on a binary tree is traversing all thenodesin the tree. (Traversing is also sometimes called walking.) Here are some ways in which this visit can be done.
+A key computation on a binary tree is traversing all the nodes in the tree. (Traversing is also sometimes called walking.) Here are some ways in which this visit can be done.
 
 
 
