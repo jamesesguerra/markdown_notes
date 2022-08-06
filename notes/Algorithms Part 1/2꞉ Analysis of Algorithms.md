@@ -2,7 +2,7 @@
 tags: [Notebooks/Algorithms Part 1]
 title: '2: Analysis of Algorithms'
 created: '2022-08-06T05:47:10.436Z'
-modified: '2022-08-06T07:44:39.361Z'
+modified: '2022-08-06T13:08:39.475Z'
 ---
 
 # 2: Analysis of Algorithms
@@ -62,3 +62,40 @@ __Total running time:__ sum of cost x frequency for all operations
 
 ![image](https://user-images.githubusercontent.com/68677613/183240045-7154f458-fcca-4ece-94d4-a5543145c2fa.png)
 
+#### Binary search: mathematical analysis
+
+Proposition: Binary search uses at most `1 + log N` compares to search in a sorted array of size N
+
+### Theory of Algorithms
+
+__Best case__
+- lower bound on cost 
+- determined by "easiest" input
+- provides a goal for all inputs
+
+__Worst case__
+- upper bound on cost 
+- determined by "most difficult" input
+- provides guarantee for all inputs
+
+__Average case__
+- expected cost for random input
+- provides a way to predict performance
+
+### Memory
+
+__Bit:__ 0 or 1
+__Byte:__ 8 bits.
+
+__Old machine:__ We used to assume a 32-bit machine with 4 byte pointers.
+
+__Modern machine:__ We now assume a 64-bit machine with 8 byte pointers
+- can address more memory
+- pointers use more space
+
+
+### Summary
+
+- analyze algorithm to count frequency of operations
+- use tilde notation to simplify analysis
+- model enables us to explain behavior
