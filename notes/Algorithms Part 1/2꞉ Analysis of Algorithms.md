@@ -57,3 +57,8 @@ __Total running time:__ sum of cost x frequency for all operations
 - need to analyze program to determine set of operations
 - cost depends on machine, compiler
 - frequency depends on algorithm, input data 
+
+![image](https://user-images.githubusercontent.com/68677613/183240039-9703ffdc-d0b0-4c3e-963a-5a690cc8bb2b.png)
+
+![image](https://user-images.githubusercontent.com/68677613/183240045-7154f458-fcca-4ece-94d4-a5543145c2fa.png)
+
