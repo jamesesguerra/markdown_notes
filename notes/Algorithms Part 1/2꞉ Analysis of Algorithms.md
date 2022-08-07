@@ -2,7 +2,7 @@
 tags: [Notebooks/Algorithms Part 1]
 title: '2: Analysis of Algorithms'
 created: '2022-08-06T05:47:10.436Z'
-modified: '2022-08-06T13:08:39.475Z'
+modified: '2022-08-07T04:35:10.209Z'
 ---
 
 # 2: Analysis of Algorithms
@@ -65,6 +65,32 @@ __Total running time:__ sum of cost x frequency for all operations
 #### Binary search: mathematical analysis
 
 Proposition: Binary search uses at most `1 + log N` compares to search in a sorted array of size N
+
+__implementation:__
+
+```java
+public static int binarySearch(int x, int[] arr) {
+    int low = 0;
+    int high = arr.length - 1;
+    int i = 1;
+    while (low <= high) {
+        int mid = (low + high) / 2;
+        int guess = arr[mid];
+
+        if (x == guess) {
+            System.out.println("Element found at index " + mid);
+            return 1;
+        } else if (x > guess) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+        i++;
+    }
+    System.out.println("Element not found");
+    return -1;
+}
+```
 
 ### Theory of Algorithms
 
