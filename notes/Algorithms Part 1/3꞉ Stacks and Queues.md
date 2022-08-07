@@ -12,6 +12,8 @@ These are fundamental data types (ADT). They don't necessarily care about how th
 - value: collection of objects
 - operations: __insert__, __remove__, __iterate__, test if empty
 
+![image](https://user-images.githubusercontent.com/68677613/183276940-c0a8b2ab-a8da-4841-b1f2-ec40f165642e.png)
+
 
 
 
