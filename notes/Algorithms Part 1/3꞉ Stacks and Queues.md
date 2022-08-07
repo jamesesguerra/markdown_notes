@@ -2,7 +2,7 @@
 tags: [Notebooks/Algorithms Part 1]
 title: '3: Stacks and Queues'
 created: '2022-08-07T05:26:47.058Z'
-modified: '2022-08-07T06:05:31.997Z'
+modified: '2022-08-07T13:35:40.800Z'
 ---
 
 # 3: Stacks and Queues
@@ -56,7 +56,7 @@ public class LinkedStackOfStrings {
     Node oldFirst = first;
     first = new Node();
     first.item = item;
-    first.next = newNode;
+    first.next = oldFirst;
   }
 
   public String pop() {
@@ -121,5 +121,14 @@ public String pop() {
   return item;
 }
 ```
+
+### Resizing arrays
+
+- __static arrays__ - allocate memory for array size of exactly N
+- __dynamic arrays__ - relax constraint that size(array) = N items in the sequence; ie every time you need more space, allocate an array of double the size
+
+__efficient implementation:__
+- `push()` - double size of array `s[]` when array is full
+- `pop()` - halve size of array `s[]` when array is one-quarter full 
 
 
