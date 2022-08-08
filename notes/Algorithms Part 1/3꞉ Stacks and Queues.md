@@ -2,7 +2,7 @@
 tags: [Notebooks/Algorithms Part 1]
 title: '3: Stacks and Queues'
 created: '2022-08-07T05:26:47.058Z'
-modified: '2022-08-07T13:35:40.800Z'
+modified: '2022-08-08T01:44:07.733Z'
 ---
 
 # 3: Stacks and Queues
@@ -131,4 +131,13 @@ __efficient implementation:__
 - `push()` - double size of array `s[]` when array is full
 - `pop()` - halve size of array `s[]` when array is one-quarter full 
 
+### Tradeoffs 
+
+Linked-list implementation:
+- every operation is O(1) in the worst case
+- although, uses extra time and space to deal with links
+
+Resizing array implementation
+- every operation takes constant amortized time (total avg over the whole process)
+- less wasted space
 
