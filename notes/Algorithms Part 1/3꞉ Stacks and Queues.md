@@ -2,7 +2,7 @@
 tags: [Notebooks/Algorithms Part 1]
 title: '3: Stacks and Queues'
 created: '2022-08-07T05:26:47.058Z'
-modified: '2022-08-08T01:44:07.733Z'
+modified: '2022-08-08T04:31:13.878Z'
 ---
 
 # 3: Stacks and Queues
@@ -140,4 +140,15 @@ Linked-list implementation:
 Resizing array implementation
 - every operation takes constant amortized time (total avg over the whole process)
 - less wasted space
+
+
+### Applications
+
+__Stack applications:__
+- back button in a web browser
+- undo in a word processor 
+- parsing in a compiler (implementing a function):
+  - function call: push local environment and return address
+  - return: pop return address and local environment
+
 
