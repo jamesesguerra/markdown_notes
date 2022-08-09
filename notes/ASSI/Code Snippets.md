@@ -2,7 +2,7 @@
 tags: [Notebooks/ASSI]
 title: Code Snippets
 created: '2022-07-22T03:38:13.422Z'
-modified: '2022-08-04T11:21:22.957Z'
+modified: '2022-08-08T13:09:24.117Z'
 ---
 
 # Code Snippets
@@ -18,6 +18,45 @@ modified: '2022-08-04T11:21:22.957Z'
 celery --app fresaa.celery_runner worker -l INFO
 ```
 
+### 0
+```js
+UNKNOWN
+```
+### 1
+```JS
+INFIRMARY
+```
+### 2
+```js
+BARANGAY_HEALTH_STATION
+```
+### 3
+```JS
+SAFE_BIRTHING_FACILITY
+```
+### 4
+```JS
+NUTRITION_POST
+```
+### 5
+```JS
+RURAL_HEALTH_UNIT
+```
+### 6
+```JS
+AUX_FACILITY
+```
+
+```js
+const {
+  1: { value: INFIRMARY },
+  2: { value: BARANGAY_HEALTH_STATION },
+  3: { value: SAFE_BIRTHING_FACILITY },
+  4: { value: NUTRITION_POST },
+  5: { value: RURAL_HEALTH_UNIT },
+  6: { value: AUX_FACILITY }
+} = facilityTypes;
+```
 
 
 
