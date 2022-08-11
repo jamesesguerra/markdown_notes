@@ -3,7 +3,7 @@ attachments: [Clipboard_2022-08-09-21-28-46.png]
 tags: [Notebooks/Python API Dev]
 title: '3: CRUD Operations'
 created: '2022-08-09T13:28:20.391Z'
-modified: '2022-08-09T14:39:15.972Z'
+modified: '2022-08-11T11:34:46.917Z'
 ---
 
 # 3: CRUD Operations
@@ -38,14 +38,28 @@ def get_posts():
 # passing a path parameter
 # validate that id is an int
 @app.get("/posts/{id}")
-def get_post(id: int):
-    id = int(id)
-    return {"post detail": f"Here is post {id}"}
+def get_post(id: int, response: Response):
+    post = find_post(id)
+    if not post:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id {id} was not found")
+    return {"post detail": post}
 ```
 
 ### PATCH (UPDATE)
 - send 404 if not found
 ```py
+@app.put("/posts/{id}")
+def update_post(id: int, post: Post):
+    index = find_post_index(id)
+
+    if index is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post with id {id} does not exist")
+
+    post_dict = post.dict()
+    post_dict['id'] = id
+    posts[index] = post_dict
+
+    return {"data": post_dict}
 ```
 
 ### DELETE (DELETE)
