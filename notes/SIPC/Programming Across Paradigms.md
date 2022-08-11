@@ -2,7 +2,7 @@
 tags: [Notebooks/SIPC]
 title: Programming Across Paradigms
 created: '2022-08-11T11:47:30.964Z'
-modified: '2022-08-11T13:49:38.397Z'
+modified: '2022-08-11T14:20:29.202Z'
 ---
 
 # Programming Across Paradigms
@@ -12,7 +12,7 @@ modified: '2022-08-11T13:49:38.397Z'
 - A paradigm is a worldview, a way of understanding the universe e.g. Geocentrism.
 - It enables progress. It's not possible to advance our understanding of the universe if there isn't a model we all agree upon. 
 
-> _"In learning a paradgim, the scientist acquires **theory**, **methods**, and **standards** together, usually in an extricable mixture."_
+> _"In learning a paradigm, the scientist acquires **theory**, **methods**, and **standards** together, usually in an extricable mixture."_
 
 __theory__ - what entities make up the universe; how they behave and interact (what makes up a program and how do they interact)
 __methods & standards__ - which problems are worth solving; which solutions are legitimate (which problems we need to address as programmers)
@@ -29,7 +29,7 @@ __Anomaly:__ As programs get larger and more complex, they become much harder to
 
 ## 2. object-oriented programming
 
-Still sort of imperative in that we're still telling the computer what to do, and we're still paying attention to state, but we're breaking it up into little chunks. So that now, the universe of programs is no longer comprised of commands, it's comprise of objects. Objects are little units that keep a little portion of state to themselves. So we say _"you, object, remember your little portion of the state of the world"_. These little objects interact by sending messages to each other (equivalent to calling a method on an object). We say _"hey object, you have some state, here's a method that I want you to run on whatever state you have and then give me some response back; do something based on my message; do something based on how your internals tell you to respond"_
+Still sort of imperative in that we're still telling the computer what to do, and we're still paying attention to state, but we're breaking it up into little chunks. So that now, the universe of programs is no longer comprised of commands, it's comprised of objects. Objects are little units that keep a little portion of state to themselves. So we say _"you, object, remember your little portion of the state of the world"_. These little objects interact by sending messages to each other (equivalent to calling a method on an object). We say _"hey object, you have some state, here's a method that I want you to run on whatever state you have and then give me some response back; do something based on my message; do something based on how your internals tell you to respond"_
 
 ### biological analogy
 
@@ -45,7 +45,7 @@ Let's conceive of the universe in terms of pure functions. Pure functions are sa
 
 ### factory
 
-Pure functions are like factories in that factories receive raw materials trcusk and then at the end of the day, something is assembled and trucks bring them out. Assembly lines do one specialized task and the raw materials flow through them and gets transformed in little ways.
+Pure functions are like factories in that factories receive raw materials trucks and then at the end of the day, something is assembled and trucks bring them out. Assembly lines do one specialized task and the raw materials flow through them and gets transformed in little ways.
 
 ## 4. declarative programming
 

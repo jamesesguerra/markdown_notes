@@ -2,7 +2,7 @@
 tags: [Notebooks/Data Structures]
 title: '1: Arrays'
 created: '2022-08-05T05:40:18.590Z'
-modified: '2022-08-08T16:03:15.464Z'
+modified: '2022-08-11T15:13:05.098Z'
 ---
 
 # 1: Arrays
@@ -40,3 +40,8 @@ __good example:__ Maximum sum of a contiguous subarray of size 3
 Commonalities? 
 - everything is grouped sequentially (substring, subarray)
 - longest, smallest, contains (permutations), max, min
+
+#### realizations
+- window is shortened / lengthened according to what we're trying to maximize ie. we have to ask ourselves if we can do better every time the condition is satisfied
+- __smallest__ - condition satisfied? shorten, otherwise, lengthen the window
+- __longest__ - condition satisfied? lengthen, otherwise, shorten the window
