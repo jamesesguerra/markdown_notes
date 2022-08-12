@@ -40,3 +40,6 @@ Because they're independent, you can run different OSs on each VM. They're extre
 1. __cost savings__ - when you can run multiple VMs on one piece of infrastructure, you can reduce your physical-infrastructure footprint. Less electricity, maintenance cost.
 2. __agility & speed__ - spinning up a VM is easy and quick
 3. __lowers down time__ - when the host goes out unexpectedly, you have a backup -- you can simply move VMs to different hypervisor on a machine that is working
+
+![image](https://user-images.githubusercontent.com/68677613/184325388-5d3ca03f-a508-4c80-ba2d-138dc408af58.png)
+
