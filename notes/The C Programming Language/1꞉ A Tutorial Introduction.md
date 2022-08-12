@@ -2,7 +2,7 @@
 tags: [Notebooks/The C Programming Language]
 title: '1: A Tutorial Introduction'
 created: '2022-08-12T02:54:59.372Z'
-modified: '2022-08-12T03:21:57.811Z'
+modified: '2022-08-12T05:48:29.869Z'
 ---
 
 # 1: A Tutorial Introduction
@@ -45,7 +45,28 @@ C provides several other basic data types (wherein sizes are also machine-depend
 - __long__ - long integer
 - __double__ - double-precision floating point
 
-Each line of the table is computed the same way, so we use a loop that repeats once per output line; this is the purpose of the `while` loop.
+### Symbolic Constants
+
+It's bad practice to bury _"magic numbers"_ like 300 and 20 in a program; they convey little information to others, and they are hard to change in a systematic way. One way to deal with them is to give them meaningful names. A `#define` line defines a symbolic name to be a particular string of characters.
+
+```c
+#define name replacement_name
+```
+
+### Character I/O
+
+Text I/O, regardles of where it originates or goes to, is dealt with as streams of characters. A _text stream_ is a sequence of characters divided into lines; each line consists of zero or more characters followed by a newline character.
+
+- `getchar()` - reads one character
+- `putchar(c)` - writes one character
+
+### Character Counting
+
+
+
+
+
+
 
 
 
