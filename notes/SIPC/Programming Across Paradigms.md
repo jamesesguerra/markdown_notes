@@ -2,7 +2,7 @@
 tags: [Notebooks/SIPC]
 title: Programming Across Paradigms
 created: '2022-08-11T11:47:30.964Z'
-modified: '2022-08-11T14:20:29.202Z'
+modified: '2022-08-12T01:40:30.360Z'
 ---
 
 # Programming Across Paradigms
@@ -14,8 +14,8 @@ modified: '2022-08-11T14:20:29.202Z'
 
 > _"In learning a paradigm, the scientist acquires **theory**, **methods**, and **standards** together, usually in an extricable mixture."_
 
-__theory__ - what entities make up the universe; how they behave and interact (what makes up a program and how do they interact)
-__methods & standards__ - which problems are worth solving; which solutions are legitimate (which problems we need to address as programmers)
+- __theory__ - what entities make up the universe; how they behave and interact (what makes up a program and how do they interact)
+- __methods & standards__ - which problems are worth solving; which solutions are legitimate (which problems we need to address as programmers)
 
 ## 1. imperative programming
 
