@@ -56,3 +56,6 @@ C also can't always work out how long an array is and keep track of its size lik
 
 So when the computer sees the string `s = "Shatner"`, it stores it in memory like this:
 
+![image](https://user-images.githubusercontent.com/68677613/184269693-47c88bd0-6d86-4cd1-a9c5-e8e8f81124a0.png)
+
+
