@@ -2,7 +2,7 @@
 tags: [Notebooks/CSCI 60]
 title: 08/13/22 Introduction
 created: '2022-08-13T05:14:43.143Z'
-modified: '2022-08-13T08:39:58.745Z'
+modified: '2022-08-14T04:40:58.626Z'
 ---
 
 # 08/13/22 Introduction
@@ -93,7 +93,7 @@ It defines how info is stored in the signal wave; process of converting data int
 #### Computing image size
 
 ```sh
-A digital camera is capable of taking GB pictures at 15M pixel resolution at an assumed compression rate of 1:10.
+A digital camera is capable of taking RGB pictures at 15M pixel resolution at an assumed compression rate of 1:10.
 
 How many images can be stored in a 32 MByte memory card?
 
@@ -128,7 +128,8 @@ example:
   - 16 bits * 44,000smp/sec = 704kbps to transmit
 
 ```sh
-You have recorded an audio file with 5 stereo channels. Each channel has a 16-bit 44Khz audio stream.
+You have recorded an audio file with 5 stereo channels.
+Each channel has a 16-bit 44Khz audio stream.
 
 How much bandwidth is needed to stream this audio file?
 How much disk space is needed to store 5 minutes of this audio file?
@@ -149,6 +150,14 @@ Storage   = Bandwidth * Time
           = 1,050 Mbits * 1 byte/8 bits
           = 131.25 MBytes
 ```
+
+### Video
+- applications: TV, teleconferencing, multimedia
+- sequences of images over time
+- same concept as image, but with the dimension of time added
+- significantly higher bandwidth req in order to send frames quickly enough
+- similary of adjacent frames allows for high compression rates
+
 
 
 funciton of frequency

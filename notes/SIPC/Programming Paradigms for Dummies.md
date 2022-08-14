@@ -2,7 +2,7 @@
 tags: [Notebooks/SIPC]
 title: Programming Paradigms for Dummies
 created: '2022-08-11T15:19:42.165Z'
-modified: '2022-08-11T15:37:00.832Z'
+modified: '2022-08-14T12:02:48.103Z'
 ---
 
 # Programming Paradigms for Dummies
@@ -15,3 +15,10 @@ Solving a programming problem requires choosing the right concepts. A _programmi
 
 Different programming languages need different programming concepts to solve problems cleanly. A language should ideally support many concepts in a well-factored way, so that the programmer can choose the right concepts whenever they are needed. This is called _multiparadigm_ programming. Nevertheless, understanding the right concepts can help improve programming style even in languages that do not support them.
 
+## Languages, paradigms, and concepts
+
+Languages realize paradigms that consists of a set of concepts. Many languages implement the same paradigm with only minor differences.
+
+> __kernel language__ - a set of programming concepts organized into a simple core language
+
+An arrow between two boxes represents the concept/s that have to be added to go from one paradigm to the next.
