@@ -42,5 +42,8 @@ The second key property of a paradigm is how strongly it supports state. State i
 2. deterministic or nondeterministic
 3. sequential or concurrent
 
+![image](https://user-images.githubusercontent.com/68677613/184537194-d2c25ef7-e2ec-418e-8cbd-3f3b58329945.png)
+
+
 
 
