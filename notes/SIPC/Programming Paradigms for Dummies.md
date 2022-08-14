@@ -2,7 +2,7 @@
 tags: [Notebooks/SIPC]
 title: Programming Paradigms for Dummies
 created: '2022-08-11T15:19:42.165Z'
-modified: '2022-08-14T12:36:06.976Z'
+modified: '2022-08-14T12:52:04.317Z'
 ---
 
 # Programming Paradigms for Dummies
@@ -37,13 +37,18 @@ Observable nondeterminism should only be supported only if its expressive power 
 
 The second key property of a paradigm is how strongly it supports state. State is the ability to store information as time passes by. Its expressive power is strongly influenced by the paradigm that contains it. 
 
-3 axes of expresiveness (gives 8 combinations in all):
+__3 axes of expresiveness (gives 8 combinations in all):__
 1. unnamed or named
 2. deterministic or nondeterministic
 3. sequential or concurrent
 
 ![image](https://user-images.githubusercontent.com/68677613/184537194-d2c25ef7-e2ec-418e-8cbd-3f3b58329945.png)
 
+- The least expressive combination is functional programming
+- Adding concurrency gives declarative concurrency programming
+- Adding nondeterministic choice gives concurrent logic programming
+- Adding ports or cells, gives messaging passing or shared state
 
+> Nondeterminism is important for real-world interaction (e.g. client/server). Named state is important for modularity.
 
 
