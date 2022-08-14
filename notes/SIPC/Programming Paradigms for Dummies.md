@@ -21,4 +21,6 @@ Languages realize paradigms that consists of a set of concepts. Many languages i
 
 > __kernel language__ - a set of programming concepts organized into a simple core language
 
+![image](https://user-images.githubusercontent.com/68677613/184536037-bafd7f77-559c-4007-92d0-196e77f1a92f.png)
+
 An arrow between two boxes represents the concept/s that have to be added to go from one paradigm to the next.
