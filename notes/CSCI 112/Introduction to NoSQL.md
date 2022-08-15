@@ -51,5 +51,8 @@ Don't worry about their differences. They have this common notion that you're ta
 
 Term "aggregate" comes from one of the key concepts of domain-driven design that often when we want to model things, we have to group things together into natural aggregates. Because when we're talking to a DB (even a relational one), it makes sense to think of those aggregates storing and retrieving data. You think of it as a single unit. 
 
+![image](https://user-images.githubusercontent.com/68677613/184648792-598f5cfa-8fe1-40be-bc1b-91e76b9e4061.png)
+
+
 
 
